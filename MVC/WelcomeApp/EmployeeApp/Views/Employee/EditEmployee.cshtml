@@ -1,0 +1,29 @@
+﻿@model EmployeeApp.Models.ViewModel.Employee
+
+@{
+    ViewBag.Title = "EditEmployee";
+}
+
+<h2>Edit Employee</h2>
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>@Html.TextAreaFor(e => e.EmpID)</th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <th>@Html.TextAreaFor(e => e.EmpName)</th>
+        </tr>
+        <tr>
+            <th>Hire Date</th>
+            <th>@Html.TextAreaFor(e => e.HireDate)</th>
+        </tr>
+        <tr>
+            <th>Salary</th>
+            <th>@Html.TextAreaFor(e => e.Salary)</th>
+        </tr>
+    </table>
+    <input type="submit" value="Done" />
+}

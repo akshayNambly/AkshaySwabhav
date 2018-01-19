@@ -37,7 +37,7 @@ namespace WelcomeApp.Controllers
             DisplayEmpVM vm2 = new DisplayEmpVM() { Name = "Ryan", Salary = 15000, DateOFJoining = "4th Jan 2018" };
             DisplayEmpVM vm3 = new DisplayEmpVM() { Name = "Austin", Salary = 25000, DateOFJoining = "17th Feb 2017" };
             var Employees = new List<DisplayEmpVM> { vm1, vm2, vm3 };
-            return View(Employees);
+            return Json(vm1,JsonRequestBehavior.AllowGet);
         }
     }
 }

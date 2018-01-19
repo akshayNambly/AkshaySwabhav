@@ -4,5 +4,12 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
-w555555555555st67855555555555555ZX55555555555555555555555858575757
+@using (Html.BeginForm())
+{
+    <label>UserName</label>@Html.TextBoxFor(u => u.Name);
+    <label>Password</label>@Html.TextBoxFor(u => u.Password, new { @class = "form-control", placeholder = "Password" });
+
+    <input type="submit"  value="Login"/>
+    <label>Status :</label>@Model.Status
+}
+

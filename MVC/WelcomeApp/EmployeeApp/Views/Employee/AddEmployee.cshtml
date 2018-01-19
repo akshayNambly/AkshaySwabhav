@@ -1,0 +1,25 @@
+﻿@model EmployeeApp.Models.ViewModel.Employee
+
+@{
+    ViewBag.Title = "AddEmployee";
+}
+
+<h2>AddEmployee</h2>
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>@Html.TextAreaFor(e => e.EmpName)<b style="color:red;">@Html.ValidationMessageFor(e => e.EmpName)</b></th>
+        </tr>
+        <tr>
+            <th>Hire Date</th>
+            <th>@Html.TextAreaFor(e => e.HireDate)</th>
+        </tr>
+        <tr>
+            <th>Salary</th>
+            <th>@Html.TextAreaFor(e => e.Salary)</th>
+        </tr>
+    </table>
+    <input type="submit" value="Done" />
+}

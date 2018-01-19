@@ -1,0 +1,66 @@
+﻿@model EmployeeApp.Models.ViewModel.IndexViewMoal
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<style>
+    .col-10 {
+        width: 10%;
+    }
+
+    .col-20 {
+        width: 20%;
+    }
+
+    .col-30 {
+        width: 30%;
+    }
+
+    .col-50 {
+        width: 50%;
+    }
+</style>
+<div class="row">
+    <div class="col-50"><h2>Found @Model.IEmpList.Count Employees</h2></div>
+    <div class="col-50">
+        <button class="btn">@Html.ActionLink("Add Employee", "AddEmployee")</button>
+    </div>
+    <div class="col">
+        @using (Html.BeginForm("Search", "Employee"))
+        {
+            @Html.TextBoxFor( e => e.IName) 
+            @Html.TextBoxFor( e => e.ISalary)<input type="submit" value="Search" />
+        }
+
+    </div>
+</div>
+
+<div>
+    <table class="table">
+        <tr>
+            <th class="col-10">Id</th>
+            <th class="col-30">Name</th>
+            <th class="col-30">Hire Date</th>
+            <th class="col-20">Salary</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (var employee in @Model.IEmpList)
+        {
+            <tr>
+                <th class="col-10">@employee.EmpID</th>
+                <th class="col-30">@employee.EmpName</th>
+                <th class="col-30">@employee.HireDate</th>
+                <th class="col-20">@employee.Salary</th>
+                <th class="col-10">@Html.ActionLink("Edit", "EditEmployee", new { id = employee.EmpID })</th>
+                <th class="col-10">
+                    @Html.ActionLink("Delete", "DeleteEmployee", new { id = employee.EmpID },
+    new { onclick = "return confirm('Are you sure you wish to delete this Employee?');" })
+                </th>
+            </tr>
+        }
+    </table>
+</div>
